@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>500</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/me.css">
+</head>
+
+<body>
+
+<!--找_fragments.html的body中的nav标签：此时n=0	-->
+<nav th:replace="_fragments::menu(0)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="mini music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <a href="#" class="item"><i class="archive icon"></i>API</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message m-padded-tb-massive" >
+        <div class="ui contianer">
+            <h2>500</h2>
+            <p>对不起，返回数据异常，请联系管理员！</p>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- 底部内容 -->
+    <footer class="ui inverted vertical segment m-padded-tb">
+        <div class="ui container center aligned">
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+        </div>
+
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<style type="text/css">
+		body{
+			/*border: 1px solid red;*/
+			/*background-image: url(../static/images/start.jpg);
+			springboot会自动从static文件下找资源，这里需要直接写为static下级目录路径*/
+			background-image: url(/images/start.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			/*background-position: 0px 0px;*/
+			/*margin: -8px;*/
+			
+
+		}
+
+		.title{
+           /*border: 1px solid red;*/
+           margin-top: 130px;
+           text-align: center;
+           font: normal 45px/85px '华文隶书';
+           position: relative;
+		}
+
+        .pic{
+        	/*border: 1px solid green;*/
+        	width: 100px;
+        	height: 150px;
+        	position: absolute;
+        	left: 300px;
+        }
+
+
+		.little_title{
+           /*border: 1px solid red;*/
+           width:470px;
+           height: 25px;
+           position: absolute;
+           left: 50%;
+           margin-left:-235px;
+           font-size: 20px;
+           font-family: 'Times New Roman';
+		}
+
+		.menu ul{
+		/*background-color: pink;*/
+		height: 65px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0;
+		text-align: center;
+		}
+
+		.menu ul li{
+			/*border: 1px dotted green;*/
+			display: inline-block;
+			height: 65px;
+			font:normal 20px/65px 'Microsoft Yahei';
+			margin: 0 50px;
+
+		}
+
+		.menu ul li a{
+			border: 1px solid rgb(41,46,56);
+			border-radius: 7px;
+			text-decoration: none;
+			color: black;
+			display: inline-block;
+			font: normal 25px/50px '微软雅黑';
+			width:180px;
+		}
+		.menu ul li a:hover{
+			background-color: rgb(41,46,56);
+	        color: white;
+        }
+	</style>
+</head>
+<body>
+	<div class="title"><img class="pic" src="/images/knot.png" />资源标识管理与解析平台</div>
+	<span class="little_title">Resource identification management and parsing platform</span><br /><br /><br /><br />
+	<!-- 菜单栏 -->
+	<div class="menu">
+		<ul>
+            <li><a href="#" th:href="@{/opera}">标识管理</a></li>
+<!--			<li><a href="#" th:href="@{/login}">标识管理</a></li>-->
+            <li><a href="#">标识解析</a></li>
+        </ul>
+    </div>
+	
+</body>
+</html>

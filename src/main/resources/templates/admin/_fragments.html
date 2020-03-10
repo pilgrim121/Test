@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--每个html有不同的title，再用Thymeleaf的frament替换的时候，传递参数：1111.先将每个html的title拿出来传到模板页上-->
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--2222.用传过来的title替换这个模板页面的title    -->
+    <title th:replace="${title}">Admin</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" type="text/css" href="../../static/css/me.css" th:href="@{/css/me.css}">
+
+</head>
+
+<body>
+
+<!--导航：传参，决定是哪个菜单active,由n的值决定-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理后台管理</h2>
+            <!--  th:classappend="${n==1}?'active'" ：当为1时，首页active         -->
+            <a href="#" class="item" th:classappend="${n==1}?'active'"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item" th:classappend="${n==2}?'active'"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item" th:classappend="${n==3}?'active'"><i class="mini music icon"></i>音乐</a>
+            <a href="#" class="item" th:classappend="${n==4}?'active'"><i class="paper plane icon"></i>节日</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- 底部内容 -->
+<footer class="ui inverted vertical segment m-padded-tb">
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+</footer>
+
+
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+</th:block>
+
+</body>
+</html>

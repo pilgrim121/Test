@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>调用api:资源列表</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/me.css">
+</head>
+<body>
+<!-- 导航 inverted反转，取反的意思-->
+<nav th:replace="_fragments::menu(5)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <!-- stackable可堆叠，响应移动端 -->
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <a href="#" class="item"><i class="archive icon"></i>API</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<br />
+<br />
+<br />
+
+
+<!-- 中间内容 -->
+<div class="m-container-xsmall">
+    <div class="ui container">
+
+            <!--"${list_bodyCode}"状态码为0时，表示返回数据正确-->
+            <div th:if="${list_bodyCode}==0">
+
+
+                        <div class="ui top attached padded segment">
+                            <div class="ui middle aligned two column grid">
+                                <div class="column">
+                                    <h3 class="ui teal header">API资源列表</h3>
+                                </div>
+                                <div class="right aligned column">
+                                    共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${apilist.totalCount}">&nbsp;14&nbsp;</h2>条
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--fluid表示填充整个屏幕：扩大宽度  -->
+                        <div class="ui fluid vertical menu">
+
+                            <a th:each="data:${apilist.datas}" th:switch="${data.type}">
+
+                                <a th:case="'opera'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny" >戏曲</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:case="'music'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny" >音乐</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:case="'dance'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny" >舞蹈</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a th:case="'folktale'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny" >民间故事</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:case="'traditionalfestival'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny" >传统节庆</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a th:case="'poetry'" class="item m-padded-tb-small">
+                                    <div class="ui middle aligned two column grid">
+                                        <div class="column">
+                                            <i class="mini teal circle icon"></i>
+                                            <span th:text="${data.name}">资源名</span>
+                                        </div>
+                                        <div class="right aligned column">
+                                            <div class="ui orange basic label m-padded-tiny">诗词</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </a>
+
+                        </div>
+
+                        <!-- 中间的底部内容 -->
+                        <div class="ui bottom attached segment" >
+                            <div>
+                                <div class="ui middle aligned two column grid">
+                                    <div class="column">
+                                        当前页是：第<h3 class="ui orange header m-inline-block m-text-thin" th:text="${apilist.currPage}">1</h3>页
+                                    </div>
+                                    <div class="right aligned column">
+                                        共计：<h3 class="ui orange header m-inline-block m-text-thin" th:text="${apilist.totalPage}">1</h3>页
+                                    </div>
+                                </div>
+                            </div>
+                            <div th:if="${apilist.totalPage}>1">
+
+                                <ul style="text-align: center !important;padding: 0 !important;" class="m-page-ul">
+
+                                    <!-- 首页 -->
+                                    <li  style="list-style: none !important;display: inline-block !important;">
+                                        <a th:href="@{/list/1}" class="ui mini teal button">首页</a>
+                                    </li>
+
+                                    <!-- 上一页 -->
+                                    <li  th:if="${apilist.currPage}>1"    style="list-style: none !important;display: inline-block !important;">
+                                        <a th:href="@{/list/{pageNum}(pageNum=${apilist.currPage}-1)}" th:text="上一页" class="ui mini teal button"></a>
+                                    </li>
+
+                                    <!-- 下一页 -->
+                                    <li th:if="${apilist.currPage}<${apilist.totalPage}"   style="list-style: none !important;display: inline-block !important;">
+                                        <a th:href="@{/list/{pageNum}(pageNum=${apilist.currPage}+1)}" th:text="下一页" class="ui mini teal button"></a>
+                                    </li>
+
+                                    <!-- 尾页 -->
+                                    <li  style="list-style: none !important;display: inline-block !important;">
+                                        <a th:href="@{/list/{pageNum}(pageNum=${apilist.totalPage})}" class="ui mini teal button">尾页</a>
+                                    </li>
+                                </ul>
+
+
+<!--                                <div class="ui middle aligned two column grid">-->
+<!--                                    <div class="column">-->
+<!--                                        <a href="#" th:href="@{/list/{pageNum}(pageNum=${apilist.currPage}-1)}" class="ui mini teal button" th:classappend="${apilist.currPage=='1'}?'red'">上一页</a>-->
+<!--                                    </div>-->
+<!--                                    <div class="right aligned column">-->
+<!--                                        <a href="#" th:href="@{/list/{pageNum}(pageNum=${apilist.currPage}+1)}"  class="ui mini teal button" th:classappend="${apilist.currPage==apilist.totalPage}?'red'">下一页</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+            </div>
+
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />
+
+
+<!-- 底部内容 -->
+<footer class="ui inverted vertical segment m-padded-tb">
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

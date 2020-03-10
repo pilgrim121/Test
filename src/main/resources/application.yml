@@ -1,0 +1,16 @@
+
+spring:
+  thymeleaf:
+    mode: HTML
+#    指定使用哪个配置文件：dev表示application-dev.yml
+  profiles:
+    active: dev
+
+
+ocomment.avatar: /images/avatar.jpg
+
+dcomment.avatar: /images/avatar.jpg
+
+mcomment.avatar: /images/avatar.jpg
+
+fcomment.avatar: /images/avatar.jpg

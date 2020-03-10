@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title th:text="${resource.title}">山歌</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/typo.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/me.css">
+</head>
+<body>
+<!--找_fragments.html的body中的nav标签：此时n=1	-->
+<nav th:replace="_fragments::menu(3)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="mini music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<div style="position: fixed !important;z-index: 9 !important;bottom: 50px !important;left: 5px !important;">
+    <div class="ui vertical buttons">
+        <button type="button" class="ui teal button" id="toc">目录</button>
+        <a href="#comment-container" class="ui teal button" >评论</a>
+    </div>
+</div>
+
+<!--生成的目录内容-->
+<div class="ui toc-container flowing popup transition hidden" style="width: 180px!important;">
+    <ol class="js-toc">
+
+    </ol>
+</div>
+
+
+
+
+<!-- 中间内容 -->
+<div class="m-container-small m-padded-tb-large animated fadeIn" >
+    <div class="ui container">
+
+
+        <!-- 中间的头部 -->
+        <div class="ui top attached segment">
+            <h2 class="ui center aligned header"  th:text="${resource.title}">&nbsp;山歌</h2>
+        </div>
+
+        <!--资源的内容开始-->
+        <div class="ui attached padded segment" id="waypoint">
+            <img src="../static/images/musicImg/428_shange.jfif" th:src="@{${mdata.img_addr}}" th:style="${mdata.img_addr==null}?'display: none !important;'" class="ui rounded image m-img" alt="" align="left" width="230" hspace="15" vspace="10" >
+            <div id="content" class="typo typo-selection js-toc-content m-padded-tb m-padded-lr-small "  th:utext="${resource.content_html}">
+                <p>
+                    山歌是指人们在田野劳动或抒发情感时即兴演唱的歌曲。它的内容广泛，结构短小，曲调爽朗、情感质朴、高亢、节奏自由。
+                </p>
+                <p>
+                    山歌，主要集中分布在高原、内地、山乡、渔村及少数民族地区。流传极广，蕴藏极丰富。山歌是中国民歌的基本体裁之一。泛指流传于高原、山区、丘陵地区，人们在行路、砍柴、放牧、割草或民间歌会上为了自娱自乐而唱的节奏自由、旋律悠长的民歌。
+                </p>
+                <hr>
+                <div>
+                    <h3 id="item-1">含义</h3>
+                    <p>
+                        中国民歌的基本体裁之一。流传分布极广，蕴藏也极为丰富。一种看法认为，凡是流传于高原、山区、丘陵地区，人们在各种个体劳动如行路、砍柴、放牧、割草或民间歌会上为了自慰自娱而唱的节奏自由、旋律悠长的民歌，就是通常所说的山歌。它们样具有在个体劳动中咏唱，歌腔自由舒展，自娱自乐等基本特征。一般来说，这种广义的山歌概念更有助于我们对山歌体裁艺术特色的理解
+                    </p>
+                </div>
+                <div>
+                    <h3 id="item-2">特点</h3>
+                    <p>
+                        1、节拍、节奏较自由（即便主体部分节奏规整，也往往在乐曲起始部分增加一个呼喊（如《弥渡山歌》）。 两名青年男子手持鼓槌，威风凛凛地敲打着木鼓；周围是头扎红带、赤裸上身的男子和甩着长发的女子仰卧起伏，随着远处男女歌手的歌声、 吼声和鼓鋩交错的强烈节奏而缓缓起舞。木鼓舞以握拳、跺脚和甩发为基本动作，别具一格的民族服装和银饰品在夕阳下闪闪发光，声音动作配合协调， 粗犷豪放，气势磅礴，撼人心魄，淋漓尽致地表现了佤族人民火一般的民族性格。
+                    </p>
+                    <p>
+                        2、旋律进行起伏较大。
+                    </p>
+                    <p>
+                        3、上下句结构的较多（南方有一部分五句子体的）。
+                    </p>
+                    <p>
+                        4、歌词往往只有一两段，并多用对偶句子。
+                    </p>
+                    <p>
+                        小调的形态特点：
+                    </p>
+                    <p>
+                        1、节奏较匀整。
+                    </p>
+                    <p>
+                        2、旋律进行较婉转、细腻。
+                    </p>
+                    <p>
+                        3、多为起承转合的规整结构。
+                    </p>
+                    <p>
+                        4、歌词往往有多段（分节歌），并常用长短句。
+                    </p>
+                </div>
+                <div>
+                    <h3 id="item-3">分布</h3>
+                    <p>
+                        中国山歌的流传分布主要集中在西北黄土高原、青海高原、西南云贵高原、秦岭大巴山区、大别山区、武夷山区、西藏高原一带。其中最有代表性的传播区及其品种有：晋、陕的"信天游"、"山曲"、"爬山调"，宁、甘、青地区的"花儿"，陕南、川北的"姐儿歌"、"茅山歌"、"背二哥"，大别山区的"慢赶牛"，江、浙一带的"吴山歌"，赣、闽、粤交汇区的"客家山歌"，云、贵、川交界地带的"晨歌"(又名"神歌")、大定山歌、弥渡山歌及各少数民族山歌，各藏族聚居区的"藏族山歌"及两广的各地山歌等。
+                    </p>
+                </div>
+                <div>
+                    <h3 id="item-4">分类</h3>
+                    <p>
+                        山歌可分为一般山歌、田秧山歌、放牧山歌三类。
+                    </p>
+                    <p>
+                        一般山歌在中国汉族地区分布甚广，如陕北地区的“信天游”、青海地区的“花儿”、安徽的“赶慢牛”等。
+                    </p>
+                    <p>
+                        田秧山歌主要常用于插秧、车水等劳动中，是为了鼓舞劳动者的情绪，提高功效，由专门的“秧歌帮子”在田间地头演唱的一种山歌。 </p>
+                    <p>
+                        放牧山歌是放牧者为吆喝牲畜或互相问答逗趣所唱的山歌，多为少年儿童所唱，曲调活泼，唱词生动，富有情趣，常带有吆喝性的衬词。
+                    </p>
+                </div>
+                <div>
+                    <h3 id="item-5">种类</h3>
+                    <p>
+                        山歌的歌种是不同地区民间对本地山歌的独特称谓，常见的种类有陕北的“信天游”，山西的“山曲”，青海、甘肃等地的“花儿”、“少年”，湖北的“赶五句”，四川的“晨歌”，安徽的“挣颈红”，等等。现今依然流行的有孟姜女调，如《月儿弯弯照九州》；剪靓花调，如《回娘家》；绣荷包调如《走西口》。比如张家界的山歌有《花大姐》、《小小丫姑》、《一个雀子一个头》等 还有贵州土家族的《望牛山歌》等。其他的还有《打支山歌过横排》、《弥渡山歌》、《对鸟》、《槐花几时开》、《马兰山歌》、《山歌年年唱春光》、《山歌姻缘》、《难忘溪水》等。
+                    </p>
+                    <div>
+                        <h4 id="item-5-1">花儿</h4>
+                        <p>
+                            “头尾齐”、“两担水”和“折断腰”是流行在甘肃、青海、宁夏一带的山歌"花儿"的歌词结构形式。“ 花儿”唱词的结构主要有两种。一种是“头尾齐”式，由4句唱词、即两对上下句组成，每句字数大体一致，但上下句唱词的词组结构在节奏上形成相互交错的效果，单数字或词组与双数词组相对；第二种歌词结构形式被当地群众形象地称为"两担水"或"折断腰"，是六句式的结构，也就是在“头尾齐”式的每对上下句之间，加进一个3至5字的半截句，不仅增加了歌词的容量，而且节奏富于变化，念起来朗朗上口。加垛：加垛是民歌中经常使用的手法。垛句一般为密集型节奏，常常一字一音，旋律性不强，节奏上处理得整齐一致，顿挫有力，类似于朗诵式的数板。垛句不追求旋律的起伏变化，而是突出节奏的动感。垛句常常插在民歌乐段的中间，其铿锵整齐的节奏与前后舒展悠扬的旋律形成鲜明对比，同时又扩展了词句的容量。垛句还有为其后的舒展旋律重新积蓄动力的作用。加垛又写作“夹垛”。它是民歌乐段结构之外增加的部分，同时它又常常夹在一个段落的中间。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-2">德化山歌</h4>
+                        <p>
+                            有情歌、劳动歌、时政歌、仪式歌、生活歌等，如劳动歌类有《呼牛歌》、《牧牛歌》、《打石歌》、《挑担号子》、《播田小唱》、《作田歌》等；时政歌类有《抗日救国好名声》、《月光光》、《壮丁歌》、《红军纪律歌》、《翻身歌》等；仪式歌类有《诀术歌》、《节令歌》、《礼俗歌》、《祭典歌》等；情歌类有《全心全意共娘好》、《生水娘子》、《风仔吹来味清香》、《娘汝看来君看去》等；生活歌类有《劝孝歌》、《顾牛歌》、《问甲心闷》、《园内开花》等。
+                        </p>
+                        <p>
+                            在经济发达的闽南文化圈，德化山歌是不可多得的乡土文化载体。人们用山歌歌颂新社会，歌颂新生活，山区农村山歌处处传唱，丰富了乡村百姓的文化生活，对当地的民间民俗礼仪活动、对当地的宣传和对外交流发挥重要作用。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-3">德化特点</h4>
+                        <p>
+                            德化山歌有别于其它地方山歌的特点在于：其一是历史悠久源流清晰。德化山歌的渊源可以追溯到晚唐，归德场（今德化县建县时的前身）场长颜仁郁“有诗百篇，传于民间”，民间美称其为“颜长官诗”，诗有《农桑》、《朱门》、《客路》、《边庭》、《城市》、《贫女》、《负薪》、《空门》、《山居》、《渔父》十门类（各十首），反映农家、朱门、城市、各阶层人民的生活和封建社会的现实，颜仁郁所作诗歌长期以来在民间广为传诵。其二是受地方戏曲推动发展。明清以来德化农村戏曲班、木偶戏、高甲戏、布袋戏、舞狮、舞龙活动的兴起等，推动了山歌的繁荣发展。其三是以德化本土方言演唱。歌词押韵，语言精炼，章法段落分明；有明显的遣词用语、习惯口语的组词造句和服从韵律的音节节奏安排词句的民间口传编排特征。其四是歌声委婉动听。德化山歌旋律简洁、节奏简单、具有规整的特点，而且歌曲的起伏不大，较为平稳，易于传唱，而且表演形象、生动、亲切、自然、朴实又独具特色。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-4">客家山歌</h4>
+                        <p>
+                            客家人是善于歌唱的民系，客家山歌是随着客家民系的形成而形成并发展的。客家山歌是用客家方言吟唱的山歌，它产生于客家劳动人民中间，人们在山上砍柴、摘木梓、伐木放排、铲松油、挑担及田间劳动时，或为寻觅同伴，以驱野兽强盗；或为消除疲劳对歌打趣：或诉幽怨；或泄愤懑；或表男女爱慕之情等等，都用山歌的形式来表达。“唱戏一半假，山歌句句真”其丰富多彩的内容，是客家人民生活的一面镜子。而其中又以情歌数量最多，也最富特色。正如山歌所唱：“自古山歌唱风流”，“山歌唔唱唔风流”。诸如爱慕、试探、追求、初恋、热恋、拒爱、送别、相思、断情等等，均用大量形式各异的山歌来表达。如上犹的一首山歌唱道：“高岭埂上打呼咒，细妹屋家吃晏昼；细妹听到呼咒响，筷子一扔碗一丢。”表现了细妹听到情哥唱山歌的哟嗬声，便无心吃饭的天真活泼形象。又如兴国的《生死缠》：“入山看到藤缠树；出山看到树缠藤；树死藤生缠到死，藤死树生死也缠。”歌随人走，这首表现爱情生死不渝的山歌，广泛流传于赣南、粤东、闽西、广西和台湾。它继承了《诗经》中的传统风格，受到唐诗律绝和竹枝词的重大影响，同时又吸取了南方各地民歌的优秀成分，千百年来，广泛流传，久唱不衰。客家山歌有劳动歌、劝世歌、行业歌、耍歌、逞歌、虚玄歌、拉翻歌、谜语歌和猜调、小调、竹板歌等。客家山歌旋律优美，几乎所有曲调中都有颤音、滑音、倚音等装饰音，因而使旋律变得回环曲折、委婉动听。客家山歌有多种唱腔，包括松口原板山歌、梅州山歌、兴宁罗岗山歌、蕉岭长潭山歌、大埔西河山歌等
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-5">兴国山歌</h4>
+                        <p>
+                            “兴国县”位于江西省南部，赣南北部地区，属赣州市管辖。三国时期孙吴嘉禾九年（公元236年）建县，始称平阳县，宋太平兴国七年（公元982年），以“兴国”年号为县名，至今已有千多年历史。兴国钟灵毓秀，人才辈出，唐代中书令越国公钟绍京，书法继繇埒王，名传于世；宋有李潜、李朴父子兄弟一门七进士，均以理学诗文名世……历史文化积淀极为丰厚。全县辖25个乡（镇）、304个行政村，73万人口，境内多山地、丘陵，蜈蚣山、大乌山、覆笥山、秦峨山分列东、北、西部，方石岭绵亘中央，只有朝南一隅，地势低平。山上林木茂密，古时山民多为樵夫或半农半樵。
+                        </p>
+                        <p>
+                            相传，兴国山歌“唐时起，宋时兴，世代流传到至今。”在兴国县志中，就有唐朝“太上隐者”唱山歌的记载；宋朝大文人苏东坡也留下了“山中木客解吟诗”的佳句。民间流传，兴国山歌为唐末落第秀才罗隐所创，民间至今还有一首流传久远的山歌：会唱山歌歌驳歌，会织绫罗梭对梭；罗隐秀才造歌本，一句妹来一句哥。由此可见，兴国山歌至少已有千多年的历史了。兴国山歌本来是山民们在田野山林相互唱和的歌。然而，宋朝中叶，一种叫“跳觋”的封建迷信活动从闽西一带流传到兴国。跳觋，本意是祈吉攘凶、保佑平安吉庆，它有一整套独特的画符作法的程式，然而，聪明的法师为了吸引更多的观众，把群众喜闻乐见的兴国山歌引入跳觋之中，使之成为两部分：一部分为法事活动，一部分为娱乐，也就是唱山歌。于是，兴国山歌就进入了室内演唱。山歌，也就随之出现了人物、情节、故事、表演，出现了有男有女的觋公、觋婆（男扮女装），而后，又逐渐深入到庙会、婚嫁、建房、祝寿等民俗活动中。
+                        </p>
+                        <p>
+                            至此，兴国山歌出现了两条平行发展的道路：一是山野田间的即兴唱和，另一种是职业歌师的室内娱乐山歌。苏区时期，兴国山歌成为了有力的战地宣传武器，写下了“一首山歌三个师”的辉煌篇章，一曲“苏区干部好作风”唱遍整个苏区。新中国成立后，兴国山歌在宣传土地革命、歌唱新中国等方面更是名闻遐尔。1996年，文化部正式将兴国命名为“山歌之乡”。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-6">景宁山歌</h4>
+                        <p>
+                            景宁山歌，是景宁人民在生产、生活斗争中创作的口头文学。景宁人民喜爱山歌，以歌代言，沟通感情 ；以歌论事，扬善惩恶 ； 以歌传知，比睿斗智。不仅婚嫁喜庆和逢年过节唱，且在生产劳动、招待客人、闲暇休息、谈情说爱时唱，甚至在丧葬悲哀时，也以歌代哭，倾吐衷肠。在旧社会，在与统治阶级的斗争中，常以山歌作武器，表达对压迫者的憎恨和对美好的追求。解放后，以歌颂中国共产党领导和社会主义新生活为主要内容的革命山歌和赞歌，反映出景宁人民新的思想风貌，与传统山歌质的区别。
+                        </p>
+                        <p>
+                            山歌一般以四行、七言体式韵文为一 条，四句为一首。也有少数歌词第一句为 三个字或五个字，讲究押韵，第三句末字须是仄声。山歌多唱 " 假声" ，有独唱、对唱和齐 唱。很少伴随动作和音乐。著名歌手有蓝春翠 ( 女 ) 、雷石连、蓝振水、雷龙花 ( 女 ) 、雷驮银 ( 女 ) 、雷永庆、蓝荣昌、蓝余根、蓝培菊 ( 女 ) 等。
+                        </p>
+                        <p>
+                            有叙事歌、风俗歌、劳动歌、 情歌、时令歌、小说歌、革命山歌、儿歌、杂歌等种类，景宁约有手抄歌本 3000 多册，2 万余首。用本土史实编成的《打酒局》、《打盐霸》和《古老歌》、《汤夫人歌》等 4 联编入《中国民间文学集成·浙江省卷》，畲族婚俗歌 935 首，哀歌 642 首，由浙江省民间文艺学会整理编印。
+                        </p>
+                        <p>
+                            《十八小妹学插田》，屎窟朝后脸向前 ; 路头客商莫笑话，代我丈夫插年田。旧社会景宁人民没有受文化教育的机会，把学歌唱歌作为一种重要文化生活。所以20世纪六十年代以前，民歌普及率较高，常以歌代言，沟通感情；以歌论事，扬善惩恶；以歌传知，斗睿斗智，形成一套上山劳动、接待来客、婚丧喜事的对歌习俗。
+                        </p>
+                        <p>
+                            民歌七字一句，四句一首，不少人能即兴编唱，有的歌手对唱一两夜而不重复。唱时用夹有“哩、罗、啊、依、勒”等音的“假声”唱，平时学歌时不夹假音唱叫“平唱”。上山劳动，单人时往往以歌驱寂寞，远处有人听到，听出是年龄相仿的异性，就往往接上，发展成谈情说爱的对唱。
+                        </p>
+                        <p>
+                            以上都是原生态的山歌。还有一些如《山歌好比春江水》，即《刘三姐》的主题曲，这是后来改编的。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 id="item-5-7">柳州山歌</h4>
+                        <p>
+                            广西柳州市的鱼峰山，是柳州山歌的发源地，传说壮族歌仙刘三姐就是在这里骑鱼飞天成仙的。柳州山歌历史悠久，自唐代以来，历经沧桑而不衰。时至今日，每逢年节假日，鱼峰山下、小龙潭边、人民广场上，都有歌手自发结伴对唱山歌，围听者甚众，场面欢快热烈。在现代化的都市里至今仍保留着传唱山歌的古老文化形态，这在全国的城市中是罕见的。
+                        </p>
+                        <p>
+                            柳州山歌有独唱、联唱、对唱等形式，其中对唱是柳州传统山歌中最常用且最具特色的一种形式。对唱俗称对歌，是歌手或歌队互相比试歌才的竞赛形式，因此又称为赛歌、打擂台，具有强烈的对抗性、竞赛性。每逢歌圩，对歌双方你唱我和，即兴创作、临场发挥、出口成歌。用词诙谐生动，出歌迅速犀利，常常让听者为之捧腹。
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 id="item-6">结构</h3>
+                    <p>
+                        连八句：连八句又写作"联八句"，是一种山歌的结构类型，流行在四川和陕西南部地区。其结构形式为：前后是两个上下句乐段，第二个乐段是第一个乐段的反复或变化反复；中间插入一段数板性质的部分，节奏比前后两个乐段相对密集，句幅紧凑。全曲一共8句。有的连八句的中段构成完整的4句乐段，便形成了带再现的三部曲式结构。五句子歌：五句子歌也是山歌的一种结构类型，流行在四川、湖北、湖南和陕西南部等地区。它的结构形式是：第1、2句是一个上下句的对应式乐段，第4、5句是第1、2句的反复或变化反复，中间的第3句或是第1句的变尾（即乐句的尾部发生变化），或是第1、第2乐句的综合（比较常见的是第1句的头加第2句的尾），或者使用新的材料。同时，第3句的落音常为调式主音，有时是调式主音的上、下二度音或四度音。这样，五句子歌的落音就形成了如下的规律：五度音-主音-主音（或二度音、四度音）--五度音-主音。
+                    </p>
+                    <p>
+                        自由、悠长的节奏形态是典型山歌体裁的特征，它主要表现在两个互相依存的方面。第一，在陈述唱词的部分，山歌音乐的节奏接近自然语言的节奏，目的是直接而清楚地说出心中的话；第二，在唱词的词组或句读（dòu）的后面，也就是旋律的乐节或乐句的尾部，山歌常常出现自由延长音，为的是尽情抒发心中的慨叹。唱词陈述部分有规律的密集型节奏，与感情咏叹时的自由延长音形成了密集与宽放、规律与自由的鲜明对比，并且由于二者频繁而多样化的交替，丰富了山歌的节奏布局，强化了山歌音乐的表现力。
+                    </p>
+                </div>
+                <div>
+                    <h3 id="item-7">区分</h3>
+                    <p>
+                        山歌和小调的区别
+                    </p>
+                    <p>
+                        山歌与小调都是民歌的表现形式，民歌是我国传统的民族民间音乐的一种，是劳动人民在社会实践中口头创作的歌曲。山歌与小调如何区分呢？ 山歌产生在野外的劳动、生活之中，其曲调高亢嘹亮，节奏自由悠长，具有直畅而自由抒发感情的特点。山歌的主要功能是抒发心中喜悦之情或倾诉郁结在心头的愁闷。在我国一些地区，山歌常常是“情歌”的另一称谓。山歌的即兴性很强，曲调和歌词常根据需要而变化。
+                    </p>
+                    <p>
+                        山歌又可分为一般山歌、田秧山歌和放牧山歌。
+                    </p>
+                    <p>
+                        一般山歌是山歌最基本、最典型的种类，集中而单纯地体现了山歌体裁的基本特征，分布甚广。有北方的信天游（如《篮花花》）、山曲和爬山调（如山西河曲的山曲《三十里名山二十里水》、内蒙爬山调（如《阳婆里把柴嘹哥哥》）、花儿（如河州大令《上去高山望平川》；南方的江浙山歌（如《对鸟》）、闽粤赣山歌（如江西的《兴国山歌》）、西南山歌（如南山歌《槐花几时开》）等；田秧山歌在民间一般称作“田秧歌”，主要唱用于插秧、耕田、车水等劳动中。劳动时，为了鼓舞情绪，提高工效，就要唱田秧歌（如《黄山秧歌》、《一根丝线牵过河》）等；放牧山歌是放牧者在田野劳动时吆喝牧畜或逗趣所唱的山歌，主要为农村的少儿所唱（如云南的《放马山歌》）等。
+                    </p>
+                    <p>
+                        小调又叫“小曲”、“小令”等，多唱用于人民群众生活中的休息、娱乐、集庆等场合。它的形式比较规整，表现手法多样，具有曲折、细致的表现特点。小调有独唱、对唱、齐唱等形式。演唱对常有丝竹伴奏。
+                    </p>
+                    <p>
+                        因流传范围广泛，使小调的内容更加深刻，更加典型，音乐形式也更加规范，使用的音乐手法也更加复杂和丰富；小调传唱的社会阶层比较复杂，也给小调的内容和形式带来了复杂性。
+                    </p>
+                    <p>
+                        小调分为吟唱调、谣曲和时调三类。吟唱调是一种与日常生活的实际紧密联系，实用性较强的小调，例如儿歌、摇儿歌（摇篮曲）、哭调、吟诵调、叫卖调和风俗仪式中的吟唱调等。其音乐特点是：旋律接近自然语言形态，多以朗诵性为主，拖腔、衬腔少，结构比较简单，完整性、独立性较差（如山东成威儿歌《花蛤蟆》、辽宁新金的《摇篮曲》等）。
+                    </p>
+                    <p>
+                        谣调传唱者大多生活在社会的底层，文化程度不高，其音乐的地方性比较浓。传统谣调有：长工诉苦歌（如陕北的《揽工调》）、妇女受苦歌（如河北民歌《小白菜》）、情歌（如晋北民歌《满村村就数妹妹好》）、生活歌曲（如河北昌黎民歌《绣灯笼》）、嬉游歌（如辽宁长海的《猜花》）等。
+                    </p>
+                    <p>
+                        时调是一种流传时间悠久、传唱范围非常广泛的小调。流传广、影响大的时调有：剪靛花调（如河北南皮的《放风筝》）、鲜花调（如江苏的《茉莉花》）、银纽丝调（如河北中部的《探亲家》）、无锡景调（如江苏的《无锡景》）、妈妈娘糊涂调（如辽宁海城区《妈妈娘你好糊涂》）、绣荷包调（如山西的《绣荷包》）、对花调（如陕北的《对花》）、叠断桥调（如安徽六安的《穿心调》）、杨柳青调（如江苏扬州《杨柳青》）等。
+                    </p>
+                    <p>
+                        山歌、小调两者鲜明的特征在于节奏，山歌音乐节奏自由和悠长，小调音乐节奏规范和均衡。抓住这两者的节奏特征，就可以凭听觉识别该民歌属于哪类体裁了。
+                    </p>
+                    <p>
+                        山歌、小调
+                    </p>
+                    <p>
+                        【山歌】　该区最为盛行的民间音乐是山歌，山歌旋律高亢，节奏自由，音域较窄，徵调式多于羽调式，其余调式较少见，音阶多为自然五声音阶，主音大都是终结音，且常为全曲的最低音，曲式为上下句的反复或“启承转合”的四句头结构。由于地理环境、习俗和方言的影响，形成3种各具特色的山歌。一是客家山歌，流行于长汀、武平、上杭、永定等县，以曲调绵长、字少腔多为特色。二是龙岩山歌，流行于龙岩及漳平山区。三是连城山歌，流行于连城县及连城、上杭、龙岩三县市的交界区域。龙岩、连城山歌以节奏急促、字多腔少为特色。山歌向无伴奏，歌手自由掌握音调高低和曲调长短缓促。建国后的专业歌手演唱，始以竹笛为主，后又加入手风琴、小提琴、长笛等乐器伴奏。1984年起，电声乐器也被采用。山歌有单唱、对唱、盘歌，在群众中世代相传，蔚然成风。
+                        【小调】　大多以江、浙、皖的“茉莉花”、“泗州调”、“扬州调”、“凤阳花鼓”、“照九州”、“十月怀胎”、“孟姜女”等曲调为基础，融合闽西山歌的特色，具有地方风格。内容大多是生活习俗和儿歌，婚有“哭嫁歌”，丧有“哭丧歌”，读书有“吟诵调”，卖货有“叫卖调”。在流传过程中，一部分小调被地方戏曲音乐、民间舞蹈所吸收。 　　 苏维埃和抗日战争时期，文艺工作者大量运用旧曲调填新词，歌唱革命，鼓舞斗志。其中较著名的有：1930年12月用孟姜女曲调填写的《夺取漳州的先声》，用闽南锦歌调填写的《梭标缴到盒子枪》，用闽西汉剧串调剪剪花填写的《动员丈夫当红军》，用江苏民歌走娘家填写的《加入儿童团》，用流行歌曲《可怜的秋香》填写的《可怜的白军》，用日本民歌调填写的《工人歌》，用教会歌曲圣经调填写的《保卫根据地战斗曲》和《团结就是力量》，用苏武牧羊调填写的《红军纪律歌》，用苏联圆舞曲填写的《八·一歌》等。三年游击战争时期，游击区群众秘密传唱的革命歌曲有《千里北上去抗日》、《专心革命走天涯》、《不怕白鬼来烧楼》、《革命哪怕费心机》等。建国后，传统的民间小调，又作为音乐创作素材，谱出一批在省、地会演、比赛中的获奖作品。
+                    </p>
+                </div>
+                <hr>
+                <div>
+                    <span><b>词条标签：</b>音乐作品 ， 音乐</span>
+                </div>
+
+            </div>
+        </div>
+        <!--资源的内容结束-->
+
+        <!--资源相关信息开始-->
+        <div class="ui attached  positive  message">
+            <div class="ui middle aligned grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>资源类型：<span th:text="${resource.type}">音乐</span></li>
+                        <li>浏览次数：<span th:text="${mdata.views}">00</span></li>
+                        <li>资源录入时间：<span th:text="${#dates.format(mdata.input_time,'yyyy年MM月dd日')}">2017-10-02</span></li>
+                        <li>资源录入者：<span th:text="${mdata.user.username}">wind</span>（联系方式：
+                            <a class="ui wechatCall circular icon mini button"><i class="weixin icon"></i></a>
+                            <div class="ui wechat flowing popup transition hidden m-padded-tiny">
+                                <img src="../static/images/we.jpg" th:src="@{${mdata.user.wechat_imgaddr}}" alt="" class="ui rounded bordered image" style="width: 100px">
+                            </div>）
+                        </li>
+                    </ui>
+                </div>
+                <div class="five wide column">
+                </div>
+            </div>
+        </div>
+        <!--资源相关信息结束-->
+
+
+
+        <!--评论-->
+        <div class="ui bottom attached segment">
+            <!--评论列表部分-->
+            <div id="comment-container"  class="ui teal segment">
+                <div th:fragment="commentList">
+                    <div class="ui threaded comments" style="max-width: 100%">
+                        <h3 class="ui dividing header" >评论</h3>
+
+                        <div class="comment" th:each="mcomment:${mcomments}">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${mcomment.avatar}}">
+                            </a>
+                            <div class="content">
+                                <a class="author" th:text="${mcomment.nickname}">Matt</a>
+                                <div class="metadata">
+                                    <span class="date" th:text="${#dates.format(mcomment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                </div>
+                                <div class="text" th:text="${mcomment.content}">How artistic!</div>
+                                <div class="actions">
+                                    <!--data-commentid,data-commentnickname是自定义的，方便处理-->
+                                    <a class="reply" data-commentid="1" data-commentnickname="Matt"  th:attr="data-commentid=${mcomment.id},data-commentnickname=${mcomment.nickname}" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+
+                            <!--二级评论-->
+                            <div class="comments" th:if="${#arrays.length(mcomment.replyComments)}>0">
+                                <div class="comment" th:each="reply:${mcomment.replyComments}">
+                                    <a class="avatar">
+                                        <img src="https://unsplash.it/100/100?image=1005" th:src="@{${reply.avatar}}">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span th:text="${reply.nickname}">Matt</span>
+                                            <span style="color: #00B5AD !important" th:text="|@ ${reply.parentComment.nickname}|">Matt</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                        </div>
+                                        <div class="text" th:text="${reply.content}">How artistic!</div>
+                                        <div class="actions">
+                                            <!--data-commentid,data-commentnickname是自定义的，方便处理-->
+                                            <a class="reply" data-commentid="1" data-commentnickname="Matt"  th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--/*-->
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Elliot Fu</a>
+                                <div class="metadata">
+                                    <span class="date">Yesterday at 12:30AM</span>
+                                </div>
+                                <div class="text">
+                                    <p>This has been very useful for my research. Thanks as well!</p>
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="https://unsplash.it/100/100?image=1005">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author">Jenny Hess</a>
+                                        <div class="metadata">
+                                            <span class="date">Just now</span>
+                                        </div>
+                                        <div class="text">
+                                            Elliot you are always so right :)
+                                        </div>
+                                        <div class="actions">
+                                            <a class="reply">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Joe Henderson</a>
+                                <div class="metadata">
+                                    <span class="date">5 days ago</span>
+                                </div>
+                                <div class="text">
+                                    Dude, this is awesome. Thanks so much
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--*/-->
+                    </div>
+                </div>
+            </div>
+            <!--评论列表部分结束-->
+            <!--发表评论-->
+            <div id="comment-form" class="ui form">
+                <!--针对当前的资源发表评论-->
+                <input type="hidden" name="mdata.tag" th:value="${mdata.tag}">
+                <!--针对当前评论对象看它的父级对象-->
+                <input type="hidden" name="parentComment.id" value="-1">
+
+
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                </div>
+                <div class="fields">
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="nickname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                    <div class="field  m-margin-bottom-small m-mobile-wide">
+                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                    </div>
+                </div>
+            </div>
+            <!--发表评论结束-->
+        </div>
+        <!--评论结束-->
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<div id="toTop-toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
+    <div id="toTop-btn" class="ui icon button" ><i class="chevron up icon"></i></div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+<!-- 底部内容 -->
+<!-- style="position: fixed;bottom: 0;z-index: 9;width: 100%;" -->
+<footer class="ui inverted vertical segment m-padded-tb" >
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+
+</footer>
+
+
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/tocbot/tocbot.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script th:inline="javascript">
+    //弹出目录
+    $('#toc').popup({
+        popup:$('.toc-container.popup'),
+        on:'click',
+        position:'right center'
+    });
+    //目录生成初始化
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h3,h4',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+
+    //平滑滚动
+    $('#toTop-btn').click(function () {
+        $(window).scrollTo(0,500);
+    });
+    //滚动侦测
+    var waypoint = new Waypoint({
+        //waypoint是监测的元素
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if (direction == 'down') {
+                $('#toTop-toolbar').show(100);
+            } else {
+                $('#toTop-toolbar').hide(500);
+            }
+            console.log('Scrolled to waypoint!  ' + direction);
+        }
+    })
+
+
+    //联系方式
+    $('.ui .wechatCall').popup({
+        popup : $('.ui .wechat'),
+        on : 'hover',
+        position: 'right center'
+    });
+
+
+
+    //评论表单验证
+    $('.ui .form').form({
+        fields:{
+            title:{
+                identifier:'content',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入评论内容'
+                }]
+            },
+            content:{
+                identifier:'nickname',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入昵称'
+                }]
+            },
+            type:{
+                identifier:'email',
+                rules:[{
+                    type:'email',
+                    prompt:'请输入正确的邮箱地址'
+                }]
+            }
+        }
+    });
+
+
+    $(function(){
+        $('#comment-container').load(/*[[@{/mcomments/{mdataTag}(mdataTag=${mdata.tag})}]]*/"");
+    });
+
+    //用户点击发布评论按钮触发的事件
+    $('#commentpost-btn').click(function () {
+        //校验表单
+        var boo=$('.ui .form').form('validate form');
+        if(boo){
+            console.log('校验成功');
+            //点击提交后，页面就将评论列表加载出来
+            postData();
+        }else{
+            console.log('校验失败');
+        }
+
+    });
+
+    //动态加载评论列表
+    function postData() {
+        $('#comment-container').load(/*[[@{/mcomments}]]*/"",{
+            "parentComment.id":$("[name='parentComment.id']").val(),
+            "mdata.tag":$("[name='mdata.tag']").val(),
+            "nickname":$("[name='nickname']").val(),
+            "email":$("[name='email']").val(),
+            "content":$("[name='content']").val()
+        },function(responseTxt,statusTxt,xhr){
+            //使页面回滚到评论
+            $(window).scrollTo($('#comment-container'),500);
+
+            clearContent();
+        });
+    }
+
+    function clearContent() {
+        //清除评论区的内容
+        $("[name='content']").val('');
+        $("[name='nickname']").val('');
+        $("[name='email']").val('');
+        //使parentComment.id值恢复为初始时赋予的值：-1
+        $("[name='parentComment.id']").val(-1);
+        $("[name='content']").attr("placeholder","请输入评论信息...");
+    }
+
+    //点击回复时触发的事件
+    //拿到当前comment对象obj，也就是上面的this
+    function reply(obj){
+        var commentId=$(obj).data('commentid');
+        var commentNickname=$(obj).data('commentnickname');
+        //点击回复时，评论区的内容的placeholder变为：@nickname
+        $("[name='content']").attr("placeholder","@"+commentNickname).focus();
+        //设置它的parentComment.id为commentId
+        $("[name='parentComment.id']").val(commentId);
+        //界面回滚到form区域
+        $(window).scrollTo($('#comment-form'),500);
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

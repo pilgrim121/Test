@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>舞蹈</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/me.css">
+</head>
+<body>
+<!-- 导航 inverted反转，取反的意思-->
+<nav th:replace="_fragments::menu(2)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <!-- stackable可堆叠，响应移动端 -->
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <a href="#" class="item"><i class="archive icon"></i>API</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 中间内容 -->
+<div class="m-container m-padded-tb-large">
+    <div class="ui container">
+
+        <div class="ui grid">
+
+            <!--左边部分-->
+            <div class="eleven wide column">
+
+                <!-- 第一部分：舞蹈分类与代码规范 -->
+                <div class="ui top attached segment">
+                    <div>
+                        <div>
+                            <h3 class="ui teal header">舞蹈分类与代码规范</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui bottom attached segment m-padded-tb-large">
+                    <div class="ui selection dropdown m-margin-tb-tiny" th:each="dnation:${dnations}" style="margin-left: 1em !important;">
+                        <i class="dropdown icon"></i>
+                        <div class="default text" th:text="${dnation.name}+${dnation.code}">民族00</div>
+                        <div class="menu">
+                            <div th:each="ddata:${dnation.ddatalist}" class="item"  data-value="1" th:data-value="${ddata.id}">
+                                <a href="#"  th:href="@{/DanceResource/{tag}(tag=${ddata.tag})}" class="m-black" target="_blank">
+                                    <span th:text="${ddata.title}">舞蹈种类名称</span>
+                                    <span th:text="${ddata.namecode}">舞蹈种类名称编码</span>
+                                    &nbsp; <span th:text="${ddata.dancecode}">舞蹈编码</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 第二部分：基本属性（待做） -->
+
+
+                <!-- 第三部分：分类属性 -->
+                <div class="ui top attached segment">
+                    <div>
+                        <div>
+                            <h3 class="ui teal header">分类属性</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui bottom attached segment m-padded-tb-large">
+                    <div class="m-margin-tb-tiny m-inline-block"  th:each="dtypeattr:${dtypeattrs}" >
+                        <div class="ui attr button m-text-thin" style="width: 120px !important;margin-left: 2em !important;" th:text="${dtypeattr.name}+${dtypeattr.code}">分类属性名 &nbsp;分类属性名编码</div>
+                        <div class="ui flowing popup top left transition hidden">
+                            <div>
+                                <p style="font-size: 12px !important;"  th:text="${dtypeattr.value}" >分类属性内容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!--右边部分-->
+            <div class="five wide column">
+                <!--调用api所得：舞蹈资源列表-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div>
+                            <div>
+                                <i class="list alternate icon"></i>资源列表
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui teal segment">
+                        <div class="ui fluid vertical menu">
+                            <a>
+                                <a class="m-padded-tb-middle item">
+                                    <div>
+                                        <i class="mini teal circle icon"></i>
+                                        <span>舞蹈资源名</span>
+                                    </div>
+                                </a>
+                                <a class="m-padded-tb-middle item">
+                                    <div>
+                                        <i class="mini teal circle icon"></i>
+                                        <span>舞蹈资源名</span>
+                                    </div>
+                                </a>
+                                <a class="m-padded-tb-middle item">
+                                    <div>
+                                        <i class="mini teal circle icon"></i>
+                                        <span>舞蹈资源名</span>
+                                    </div>
+                                </a>
+                                <a class="m-padded-tb-middle item">
+                                    <div>
+                                        <i class="mini teal circle icon"></i>
+                                        <span>舞蹈资源名</span>
+                                    </div>
+                                </a>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--分页-->
+                    <div class="ui segment">
+                        <table>
+                            <tr>
+                                <div class="ui pagination menu">
+                                    <a class="m-padded-tb-tiny item">首页</a>
+                                    <a class="m-padded-tb-tiny item">上一页</a>
+                                    <a class="m-padded-tb-tiny item">下一页</a>
+                                    <a class="m-padded-tb-tiny item">尾页</a>
+                                </div>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <!--资源列表结束-->
+
+
+            </div>
+            <!--右边部分结束-->
+
+        </div>
+
+    </div>
+</div>
+
+<!-- 底部内容 -->
+<footer class="ui inverted vertical segment m-padded-tb">
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script type="text/javascript">
+
+    //民族的下拉列表
+    $('.ui.dropdown').dropdown({
+        on:'click'
+    });
+
+
+    $('.ui .attr').popup({
+        popup : $('.flowing.popup'),
+        on    : 'hover'
+    });
+
+
+</script>
+
+</body>
+</html>

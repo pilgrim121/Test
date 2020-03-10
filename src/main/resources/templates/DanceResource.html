@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title th:text="${resource.title}">红绸舞</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/typo.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/me.css">
+</head>
+<body>
+<!--找_fragments.html的body中的nav标签：此时n=2	-->
+<nav th:replace="_fragments::menu(2)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="mini music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<div style="position: fixed !important;z-index: 9 !important;bottom: 50px !important;left: 5px !important;">
+    <div class="ui vertical buttons">
+        <button type="button" class="ui teal button" id="toc">目录</button>
+        <a href="#comment-container" class="ui teal button" >评论</a>
+    </div>
+</div>
+
+<!--生成的目录内容-->
+<div class="ui toc-container flowing popup transition hidden" style="width: 180px!important;">
+    <ol class="js-toc">
+
+    </ol>
+</div>
+
+
+
+
+<!-- 中间内容 -->
+<div class="m-container-small m-padded-tb-large animated fadeIn" >
+    <div class="ui container">
+        <!-- 中间的头部 -->
+        <div class="ui top attached segment">
+            <h2 class="ui center aligned header"  th:text="${resource.title}">&nbsp;红绸舞</h2>
+        </div>
+        <!--资源内容开始-->
+        <div class="ui attached padded segment" id="waypoint">
+            <img src="../static/images/danceImg/283_hongchou.jpg" th:src="@{${ddata.img_addr}}" th:style="${ddata.img_addr==null}?'display: none !important;'" class="ui rounded image m-img" alt="" align="left" width="230" hspace="15" vspace="10" >
+            <div id="content" class="typo typo-selection js-toc-content m-padded-tb m-padded-lr-small "  th:utext="${resource.content_html}">
+                    <p>1950年由长春市文工团集体创作的《红绸舞》是特定历史时期的产物。从解放战争捷报频传到新中国的诞生，中国人民的社会地位发生了巨大改变，他们通过各种形式将蓄积已久的喜悦释放出来。群众街头秧歌运动成为新流行文化的生力军，尤其是在陕北和东北地区，炽热的舞蹈革命浪潮通过对这一舞蹈形式的不断丰富和完善持续高涨。可以说《红绸舞》是对街头文化的一次完整的加工、提炼、总结和升华。它从内容到形式上都充满了那个特定时期的烙印。</p><p>《红绸舞》的创作班子曾分批向民间艺人和戏曲艺术家学习舞长绸的基本动作和技法，并在实践中不断去粗取精、活学活用。他们先是突破了传统长绸的表演方法，尤其是在男演员舞蹈动作上加大了力度、幅度和难度，速度上也有多种处理，并由此引发了对道具的改良：增加绸子的宽度和长度，并将其古典色彩用革命浪漫主义色彩代替，将民间杂技的传统节目《百丈旗》中的长绸制作方法借鉴过来，在末端同小木棒连接，这样，一是延长了力臂，同时也为创造新的舞蹈形象创造了条件丰富了道具形态一一时而似火炬，时而变飞龙。新的技术要求道具改良，道具的创新又进一步丰富了长绸舞的技巧和语汇，拓展了其表现空间。其次《红绸舞》将喜庆、爽快、俏美的东北秧歌同豪放、粗犷的陕北秧歌有机结合，互存互补，形成了新时期舞台秧歌热烈、舒畅、明快的特色，极富感染力。</p>
+                    <hr>
+                    <div>
+                        <h3  id="item-0">简介</h3>
+                        <p>《红绸舞》中国民族民间舞蹈作品</p><p>舞蹈首演：1951年长春</p><p>首演团体：长春市歌舞团</p>
+                    </div>
+                    <div>
+                        <h3 id="item-1">评价</h3>
+                        <div><h4  id="item-1-1">形式层面</h4><p>从舞蹈形式上看，创作开始基本设想就是力图“将传统京剧的长绸舞同东北秧歌相结合”。因为这两个素材都有着丰富的可挖掘整理的价值，尤其长绸舞，早在汉代画像和敦煌壁画上就有过生动的形象记载，后经历代民间艺人继承与发展，推陈出新，发展了舞绸的技巧，丰富了绸形的变化。黑龙江省的民间艺人能将绸子舞出“福、寿”等各种字样及图案。</p></div>
+                        <div><h4  id="item-1-2">结构层面</h4><p>从《红绸舞》的舞蹈结构上看具有层层推进是渐至高潮，一气呵成的特点，这同整个舞蹈的情绪要求是完全吻合的。其中看似循规蹈矩，缺少变化的处理，正是要将主题情绪进行到底，才能极大满足当时人民群众的审美心理需求的追求是一致的。舞蹈在形式上通过队形队阵、绸花变幻，来丰富观者的视觉感受。如女子双人舞、男子双人舞、男子独舞及群舞等形成，二龙吐须、斜排、横排、点阵、圆等队形；绸子长短、单双形态的变化，“大八字”、“小八字”、“左肩花转身跳圈”、“波浪花”、“单跳圈花”“桌、门、轴平面圆”等等绸花技巧。尤其是绸花技巧变化和创新，注重同民族传统技巧配合，如“串翻身”、“平转”、“蹦子”、“旋子”和胸腰、大腰的一些动作，使《红绸舞》具有较高的艺术性，《红绸舞》创作集体的严谨的创作态度时至今日都值得艺术创作者效仿。由于作品内容与形式的高度统一，既保持了浓厚的民族风格，又极富崭新的时代气息，《红绸舞》受到了海内外各界人士的高度称赞。</p></div>
+                        <div><h4  id="item-1-3">和谐整合</h4><p>红绸舞》的两个基本构成部分都是经过认真学习、研究、提炼、加工后再进行整合而创作的，可以说其出发点即是拿为“此”用，制作环节堪称精良，整个舞蹈风格极为和谐统一，其形式同表现新时期中国人民庆解放时欢腾、喜庆的精神风貌之主题是极为贴切的。</p></div>
+                    </div>
+                    <hr>
+                    <div>
+                        <span>
+                            <b>词条标签：</b>舞蹈
+                        </span>
+                    </div>
+            </div>
+        </div>
+        <!--资源内容结束-->
+
+        <!--资源相关信息开始-->
+        <div class="ui attached  positive  message">
+            <div class="ui middle aligned grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>资源类型：<span th:text="${resource.type}">舞蹈</span></li>
+                        <li>浏览次数：<span th:text="${ddata.views}">00</span></li>
+                        <li>资源录入时间：<span th:text="${#dates.format(ddata.input_time,'yyyy年MM月dd日')}">2017-10-02</span></li>
+                        <li>资源录入者：<span th:text="${ddata.user.username}">wind</span>（联系方式：
+                            <a class="ui wechatCall circular icon mini button"><i class="weixin icon"></i></a>
+                            <div class="ui wechat flowing popup transition hidden m-padded-tiny">
+                                <img src="../static/images/we.jpg" th:src="@{${ddata.user.wechat_imgaddr}}" alt="" class="ui rounded bordered image" style="width: 100px">
+                            </div>）
+                        </li>
+                    </ui>
+                </div>
+                <div class="five wide column">
+                </div>
+            </div>
+        </div>
+        <!--资源相关信息结束-->
+
+
+        <!--评论-->
+        <div class="ui bottom attached segment">
+            <!--评论列表部分-->
+            <div id="comment-container"  class="ui teal segment">
+                <div th:fragment="commentList">
+                    <div class="ui threaded comments" style="max-width: 100%">
+                        <h3 class="ui dividing header" >评论</h3>
+
+                        <div class="comment" th:each="dcomment:${dcomments}">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${dcomment.avatar}}">
+                            </a>
+                            <div class="content">
+                                <a class="author" th:text="${dcomment.nickname}">Matt</a>
+                                <div class="metadata">
+                                    <span class="date" th:text="${#dates.format(dcomment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                </div>
+                                <div class="text" th:text="${dcomment.content}">How artistic!</div>
+                                <div class="actions">
+                                    <!--data-commentid,data-commentnickname是自定义的，方便处理-->
+                                    <a class="reply" data-commentid="1" data-commentnickname="Matt"  th:attr="data-commentid=${dcomment.id},data-commentnickname=${dcomment.nickname}" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+
+                            <!--二级评论-->
+                            <div class="comments" th:if="${#arrays.length(dcomment.replyComments)}>0">
+                                <div class="comment" th:each="reply:${dcomment.replyComments}">
+                                    <a class="avatar">
+                                        <img src="https://unsplash.it/100/100?image=1005" th:src="@{${reply.avatar}}">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span th:text="${reply.nickname}">Matt</span>
+                                            <span style="color: #00B5AD !important" th:text="|@ ${reply.parentComment.nickname}|">Matt</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                        </div>
+                                        <div class="text" th:text="${reply.content}">How artistic!</div>
+                                        <div class="actions">
+                                            <!--data-commentid,data-commentnickname是自定义的，方便处理-->
+                                            <a class="reply" data-commentid="1" data-commentnickname="Matt"  th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--/*-->
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Elliot Fu</a>
+                                <div class="metadata">
+                                    <span class="date">Yesterday at 12:30AM</span>
+                                </div>
+                                <div class="text">
+                                    <p>This has been very useful for my research. Thanks as well!</p>
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="https://unsplash.it/100/100?image=1005">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author">Jenny Hess</a>
+                                        <div class="metadata">
+                                            <span class="date">Just now</span>
+                                        </div>
+                                        <div class="text">
+                                            Elliot you are always so right :)
+                                        </div>
+                                        <div class="actions">
+                                            <a class="reply">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Joe Henderson</a>
+                                <div class="metadata">
+                                    <span class="date">5 days ago</span>
+                                </div>
+                                <div class="text">
+                                    Dude, this is awesome. Thanks so much
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--*/-->
+                    </div>
+                </div>
+            </div>
+            <!--评论列表部分结束-->
+            <!--发表评论-->
+            <div id="comment-form" class="ui form">
+                <!--针对当前的资源发表评论-->
+                <input type="hidden" name="ddata.tag" th:value="${ddata.tag}">
+                <!--针对当前评论对象看它的父级对象-->
+                <input type="hidden" name="parentComment.id" value="-1">
+
+
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                </div>
+                <div class="fields">
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="nickname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                    <div class="field  m-margin-bottom-small m-mobile-wide">
+                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                    </div>
+                </div>
+            </div>
+            <!--发表评论结束-->
+        </div>
+        <!--评论结束-->
+
+
+
+
+
+
+
+    </div>
+    <!--container结束-->
+</div>
+<!-- 中间内容结束 -->
+
+
+
+
+<div id="toTop-toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
+    <div id="toTop-btn" class="ui icon button" ><i class="chevron up icon"></i></div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+<!-- 底部内容 -->
+<!-- style="position: fixed;bottom: 0;z-index: 9;width: 100%;" -->
+<footer class="ui inverted vertical segment m-padded-tb" >
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+
+</footer>
+
+
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/tocbot/tocbot.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.js"></script>
+<script src="../static/lib/qrcode/qrcode.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script th:inline="javascript">
+
+
+    //弹出目录
+    $('#toc').popup({
+        popup:$('.toc-container.popup'),
+        on:'click',
+        position:'right center'
+    });
+    //目录生成初始化
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h3,h4',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+
+    //平滑滚动
+    $('#toTop-btn').click(function () {
+        $(window).scrollTo(0,500);
+    });
+    //滚动侦测
+    var waypoint = new Waypoint({
+        //waypoint是监测的元素
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if (direction == 'down') {
+                $('#toTop-toolbar').show(100);
+            } else {
+                $('#toTop-toolbar').hide(500);
+            }
+            console.log('Scrolled to waypoint!  ' + direction);
+        }
+    })
+
+
+
+    //联系方式
+    $('.ui .wechatCall').popup({
+        popup : $('.ui .wechat'),
+        on : 'click',
+        position: 'right center'
+    });
+
+
+
+    //评论表单验证
+    $('.ui .form').form({
+        fields:{
+            title:{
+                identifier:'content',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入评论内容'
+                }]
+            },
+            content:{
+                identifier:'nickname',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入昵称'
+                }]
+            },
+            type:{
+                identifier:'email',
+                rules:[{
+                    type:'email',
+                    prompt:'请输入正确的邮箱地址'
+                }]
+            }
+        }
+    });
+
+
+    $(function(){
+        $('#comment-container').load(/*[[@{/dcomments/{ddataTag}(ddataTag=${ddata.tag})}]]*/"");
+    });
+
+    //用户点击发布评论按钮触发的事件
+    $('#commentpost-btn').click(function () {
+        //校验表单
+        var boo=$('.ui .form').form('validate form');
+        if(boo){
+            console.log('校验成功');
+            //点击提交后，页面就将评论列表加载出来
+            postData();
+        }else{
+            console.log('校验失败');
+        }
+
+    });
+
+    //动态加载评论列表
+    function postData() {
+        $('#comment-container').load(/*[[@{/dcomments}]]*/"",{
+            "parentComment.id":$("[name='parentComment.id']").val(),
+            "ddata.tag":$("[name='ddata.tag']").val(),
+            "nickname":$("[name='nickname']").val(),
+            "email":$("[name='email']").val(),
+            "content":$("[name='content']").val()
+        },function(responseTxt,statusTxt,xhr){
+            //使页面回滚到评论
+            $(window).scrollTo($('#comment-container'),500);
+
+            clearContent();
+        });
+    }
+
+    function clearContent() {
+        //清除评论区的内容
+        $("[name='content']").val('');
+        $("[name='nickname']").val('');
+        $("[name='email']").val('');
+        //使parentComment.id值恢复为初始时赋予的值：-1
+        $("[name='parentComment.id']").val(-1);
+        $("[name='content']").attr("placeholder","请输入评论信息...");
+    }
+
+    //点击回复时触发的事件
+    //拿到当前comment对象obj，也就是上面的this
+    function reply(obj){
+        var commentId=$(obj).data('commentid');
+        var commentNickname=$(obj).data('commentnickname');
+        //点击回复时，评论区的内容的placeholder变为：@nickname
+        $("[name='content']").attr("placeholder","@"+commentNickname).focus();
+        //设置它的parentComment.id为commentId
+        $("[name='parentComment.id']").val(commentId);
+        //界面回滚到form区域
+        $(window).scrollTo($('#comment-form'),500);
+    }
+
+
+
+</script>
+
+</body>
+</html>

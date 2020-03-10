@@ -1,0 +1,53 @@
+
+
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+      cluster-name: my-elasticsearch
+
+#      elasticsearch:
+#        cluster-nodes: 49.234.185.148:9301
+#        cluster-name: my-elasticsearch
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.234.185.148:3306/resource?useUnicode=true&characterEncoding=utf-8&serverTimezone=CTT
+    username: root
+    password: WUJIEwuyuejun@188
+
+
+#    elasticsearch:
+#       cluster-nodes: 127.0.0.1:9301
+#       cluster-name: my-elasticsearch
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+logging:
+  level:
+    root: info
+    com.example: debug
+  file:
+    path: log/blog-dev.log
+
+#default port
+server:
+  port: 8080
+
+ #调用api配置
+http:
+  maxTotal: 100
+  defaultMaxPerRoute: 20
+  connectTimeout: 6000
+  connectionRequestTimeout: 6000
+  socketTimeout: -1
+  staleConnectionCheckEnabled: true
+
+
+

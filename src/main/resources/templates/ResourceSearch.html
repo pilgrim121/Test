@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>资源查询</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/me.css">
+</head>
+<body>
+<nav th:replace="_fragments::menu(0)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+    <div class="ui container">
+        <!-- stackable可堆叠，响应移动端 -->
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">标识管理</h2>
+            <a href="#" class="item"><i class="mini opera icon"></i>戏曲</a>
+            <a href="#" class="item"><i class="child icon"></i>舞蹈</a>
+            <a href="#" class="item"><i class="mini music icon"></i>音乐</a>
+            <a href="#" class="item"><i class="paper plane icon"></i>节日</a>
+            <div class="right item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 中间内容 -->
+<div class="m-container m-padded-tb-large">
+    <div class="ui container">
+
+        <div class="m-container m-padded-tb-large">
+            <div class="ui container">
+                    <div class="ui segment">
+                        <!-- 中间的头部 -->
+                        <div class="ui top attached segment">
+                            <div class="ui middle aligned two column grid">
+                                <div class="column">
+                                    <h3 class="ui teal header">搜索结果</h3>
+                                </div>
+                                <div class="right aligned column">
+                                    共<h2 class="ui orange header m-inline-block"  th:text="${page.totalElements}">&nbsp;？&nbsp;</h2>条
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 中间的列表内容 -->
+                        <div class="ui attached padded segment">
+                            <!-- 第一条文章 -->
+                            <div class="ui padded vertical segment m-padded-tb-small" th:each="resource:${page.content}">
+                                <h3 class="ui header" th:switch="${resource.type}">
+                                    <a href="#" th:case="'戏曲'" th:href="@{/OperaResource/{tag}(tag=${resource.tag})}"  th:text="${resource.title}" target="_blank">hhh</a>
+                                    <a href="#" th:case="'舞蹈'" th:href="@{/DanceResource/{tag}(tag=${resource.tag})}"  th:text="${resource.title}" target="_blank">hhh</a>
+                                    <a href="#" th:case="'音乐'" th:href="@{/MusicResource/{tag}(tag=${resource.tag})}"  th:text="${resource.title}" target="_blank">hhh</a>
+                                    <a href="#" th:case="'节日'" th:href="@{/FestivalResource/{tag}(tag=${resource.tag})}"  th:text="${resource.title}" target="_blank">hhh</a>
+                                </h3>
+                                <p th:text="|${resource.description}.......|">Semantic UI 是一款非常优秀的前端开发框架。它在用户体验的设计上与Bootstrap和Foundation相比,更胜一筹。</p>
+                            </div>
+                        </div>
+
+                        <!-- 中间的底部内容 -->
+                        <div class="ui segment" th:if="${page.totalPages}>1">
+                            <div class="ui middle aligned two column grid">
+                                <div class="column">
+                                    <a href="#" th:href="@{/ResourceSearch(page=${page.number}-1,query=${query})}" class="ui mini teal button" th:unless="${page.first}">上一页</a>
+                                </div>
+                                <div class="right aligned column">
+                                    <a href="#" th:href="@{/ResourceSearch(page=${page.number}+1,query=${query})}"  class="ui mini teal button" th:unless="${page.last}">下一页</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部内容 -->
+<!-- style="position: fixed;bottom: 0;z-index: 9;width: 100%;" -->
+<footer class="ui inverted vertical segment m-padded-tb" style="position: fixed;bottom: 0;z-index: 9;width: 100%;">
+    <div class="ui container center aligned">
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ snnu...</p>
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+</body>
+</html>

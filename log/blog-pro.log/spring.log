@@ -1,0 +1,28 @@
+2020-01-05 15:34:34.633  INFO 326076 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-8LUH3M7 with PID 326076 (D:\ideaproj\demo\target\classes started by wind in D:\ideaproj\demo)
+2020-01-05 15:34:34.635 DEBUG 326076 --- [main] com.example.demo.DemoApplication         : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-01-05 15:34:34.635  INFO 326076 --- [main] com.example.demo.DemoApplication         : The following profiles are active: pro
+2020-01-05 15:34:35.123  INFO 326076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-05 15:34:35.135  INFO 326076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 JPA repository interfaces.
+2020-01-05 15:34:35.303  INFO 326076 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-05 15:34:35.465  INFO 326076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 15:34:35.472  INFO 326076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 15:34:35.473  INFO 326076 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-01-05 15:34:35.535  INFO 326076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 15:34:35.535  INFO 326076 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 870 ms
+2020-01-05 15:34:35.620  INFO 326076 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-05 15:34:35.654  INFO 326076 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-05 15:34:35.719  INFO 326076 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-05 15:34:35.782  INFO 326076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-01-05 15:34:35.784  WARN 326076 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-01-05 15:34:35.972  INFO 326076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-01-05 15:34:35.982  INFO 326076 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-01-05 15:34:36.125  INFO 326076 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-05 15:34:36.129  INFO 326076 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-05 15:34:36.178  WARN 326076 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-01-05 15:34:36.259  INFO 326076 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-05 15:34:36.333  WARN 326076 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-01-05 15:34:36.401  INFO 326076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 15:34:36.403  INFO 326076 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.137 seconds (JVM running for 2.71)
+2020-01-05 15:34:44.894  INFO 326076 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-01-05 15:34:44.894  INFO 326076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-01-05 15:34:44.898  INFO 326076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
